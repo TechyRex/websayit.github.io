@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="SayiT is a platform designed to empower individuals to share their thoughts, feelings, and experiences in a safe and supportive environment">
+        <meta name="author" content="">
+
+        <title>SayiT</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/magnific-popup.css">
+
+        <link href="css/aos.css" rel="stylesheet">
+
+        <link href="css/templatemo-nomad-force.css" rel="stylesheet">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    </head>
+    
+    <body>
+    
+        <main>
+
+            <section class="hero" id="hero">
+                <div class="heroText">
+                    <h1 class="news-detail-title text-white mt-lg-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                        About Us
+                    </h1>
+
+                    
+                </div>
+
+                <div class="videoWrapper">
+                    <img src="images/news/about.jpg" class="img-fluid news-detail-image" alt="">
+                </div>
+
+                <div class="overlay"></div>
+            </section>
+
+            <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <strong>SayiT</strong>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="services.html">Our Services</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="book-a-session.html">Book a Session</a>
+                            </li>
+
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="news-detail section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-10 mx-auto">
+                            <h2 class="volunteer-detail1" data-aos="fade-up">About US</h2>
+
+                            <p class="v-detail" data-aos="fade-up">
+
+                                Welcome to <strong>SayiT</strong>, a safe and supportive platform dedicated to promoting mental well-being through open communication, empathy, and guidance. <br>At SayiT, we believe that sharing your thoughts, struggles, and feelings is the first step towards healing and self-discovery. Our mission is to provide a confidential space where individuals can express their challenges—be it mental health issues, emotional struggles, low self-esteem, purpose discovery, or any life difficulties—and connect with compassionate counselors who are ready to listen, guide, and support.
+                                
+                                <br></br>We understand that life's journey can be overwhelming at times, and that's why we are committed to helping you find clarity and strength through meaningful conversations. Whether you are dealing with heartbreaks, addictions, personal growth, or seeking self-awareness, our platform is here to connect you with the right counselor who resonates with your needs.
+                                
+                                <br></br>At SayiT, our focus is on fostering a community of care, where everyone’s voice is heard, respected, and valued. Through this platform, we aim to break down barriers to mental health support, empower individuals to speak up, and create lasting positive change.
+                                
+                                <em>Let your voice be heard—<strong>SayiT</strong> is here for you.</em></p>
+
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12">
+                        <h5 class="text-white">
+                            SayiT Africa
+                        </h5>
+
+                        <a href="mailto:info@company.com" class="custom-link mt-3 mb-5">
+                            info@sayit.com.ng
+                        </a>
+                    </div>
+
+                    <div class="col-6">
+                        Copyright © SayiT 2024 
+                    </p>
+                    
+                    </div>
+
+                    <div class="col-lg-3 col-5 ms-auto">
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-twitter"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+        const likeBtn = document.querySelector('.like-btn');
+        const likeCount = document.querySelector('.like-count');
+        const commentForm = document.querySelector('.comment-form textarea');
+        const submitCommentBtn = document.querySelector('.submit-comment-btn');
+        const commentsList = document.querySelector('.comments-list');
+        const commenterNameInput = document.querySelector('#commenter-name');
+        const anonymousCheckbox = document.querySelector('#anonymous-checkbox');
+    
+        // Load saved like count and comments from localStorage
+        const savedLikeCount = localStorage.getItem('likeCount');
+        const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+    
+        if (savedLikeCount) {
+            likeCount.textContent = savedLikeCount;
+        }
+    
+        savedComments.forEach(comment => {
+            const commentItem = document.createElement('div');
+            commentItem.classList.add('comment-item', 'mb-4');
+            commentItem.innerHTML = `<strong>${comment.name}</strong><p>${comment.text}</p>`;
+            commentsList.appendChild(commentItem);
+        });
+    
+        // Handle like button click
+        likeBtn.addEventListener('click', function() {
+            let count = parseInt(likeCount.textContent);
+            count += 1;
+            likeCount.textContent = count;
+            localStorage.setItem('likeCount', count); // Save like count to localStorage
+        });
+    
+        // Handle comment submission
+        submitCommentBtn.addEventListener('click', function() {
+            const commentText = commentForm.value.trim();
+            let commenterName = commenterNameInput.value.trim();
+    
+            if (anonymousCheckbox.checked || commenterName === '') {
+                commenterName = 'Anonymous';
+            }
+    
+            if (commentText) {
+                const commentItem = document.createElement('div');
+                commentItem.classList.add('comment-item', 'mb-4');
+                commentItem.innerHTML = `<strong>${commenterName}</strong><p>${commentText}</p>`;
+                commentsList.appendChild(commentItem);
+    
+                // Save comment to localStorage
+                savedComments.push({ name: commenterName, text: commentText });
+                localStorage.setItem('comments', JSON.stringify(savedComments));
+    
+                // Clear the form
+                commentForm.value = '';
+                commenterNameInput.value = '';
+            }
+        });
+    });
+        </script>
+        
+        <script>
+            function resetCommentsAndLikes() {
+        // Clear localStorage
+        localStorage.removeItem('likeCount');
+        localStorage.removeItem('comments');
+    
+        // Reset the like count and comments list
+        document.querySelector('.like-count').textContent = '0';
+        document.querySelector('.comments-list').innerHTML = '';
+    }
+    
+    // Keyboard shortcut for reset (e.g., Ctrl+Shift+R)
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.shiftKey && event.key === 'R') {
+            event.preventDefault();
+            resetCommentsAndLikes();
+            alert('Comments and likes have been reset!');
+        }
+    });
+        </script>
+    
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/magnific-popup-options.js"></script>
+        <script src="js/scrollspy.min.js"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
+</html>
