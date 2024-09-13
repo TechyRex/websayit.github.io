@@ -101,11 +101,7 @@
                                 At Soulaze, we believe in the power of shared experiences and the importance of mental well-being. Our platform is designed to empower individuals to express their thoughts, feelings, and experiences in a safe, supportive environment, where their voices are not only heard but understood.
                                 
                                 <br></br>As a counselor on Soulaze, you will play a pivotal role in fostering this environment.
-                                <br> We are looking for passionate, empathetic individuals who are dedicated to making a positive impact on others' lives by providing guidance, support, and a listening ear. <br></br>Whether you have years of professional experience or are just starting your journey in mental health advocacy, your contribution is invaluable to us.
-                                
-                                By volunteering as a counselor, you will help us continue our mission to promote mental well-being and provide crucial support to individuals who need it most. You'll also have the opportunity to grow personally and professionally, gaining experience in counseling while contributing to a cause that truly matters.
-                                
-                                We are calling on individuals with a background in psychology, counseling, therapy, or any relevant field to join our community of volunteers. Your time and expertise can make a significant difference in someone's life.</p>
+                                <br> We are looking for passionate, empathetic individuals who are dedicated to making a positive impact on others' lives by providing guidance, support, and a listening ear. </p>
                             
                                 
                                 
@@ -221,12 +217,61 @@
                         <input type="text" id="x-handle" name="x-handle" required>
                 
                         <label>
-                            <input type="checkbox" id="terms" name="terms" required> I have read and agree to the <a href="#">Terms and Conditions</a>.
+                            <input type="checkbox" id="terms" name="terms" required> I have read and agree to the <u><a href="#terms-conditions" onclick="showTerms()">Terms and Conditions</a></u>.
+                <!-- Terms and Conditions Section -->
+                <div id="terms-conditions" style="display: none">
+                    <p class="v-detail8"><strong>Terms and Conditions</strong></p>
+                    <p class="v-detail8">Welcome to Soulaze! These terms and conditions outline the rules and regulations for volunteers who offer their services as counselors on our platform.</p>
+                
+                    <p class="v-detail8" ><strong>1. Acceptance of Volunteers</strong></p>
+                    <p class="v-detail8">Volunteers are subject to approval by the Soulaze team. We reserve the right to accept or reject any volunteer applications without providing a reason.</p>
+                
+                    <p class="v-detail8"><strong>2. Volunteer Responsibilities</strong></p>
+                    <p class="v-detail8" >As a volunteer counselor, you are expected to provide supportive and ethical advice within the guidelines of mental health care. You must maintain confidentiality at all times.</p>
+                
+                    <p class="v-detail8" ><strong>3. Confidentiality</strong></p>
+                    <p class="v-detail8" >All personal information and discussions with users must remain confidential. Any breach of confidentiality may result in removal from the platform.</p>
+                
+                    <p class="v-detail8" ><strong>4. Non-Compensation</strong></p>
+                    <p class="v-detail8">Soulaze volunteers are not compensated for their time or services. Volunteering is a completely voluntary, non-paid service.</p>
+                
+                    <p class="v-detail8"><strong>5. Termination of Service</strong></p>
+                    <p class="v-detail8">Soulaze reserves the right to terminate your volunteer status at any time if you fail to adhere to the guidelines, standards, or any other terms and conditions.</p>
+                
+                    <p class="v-detail8" >By agreeing to these terms and conditions, you confirm that you understand your responsibilities and agree to comply with them.</p>
+                
+                    <p class="v-detail9" onclick="hideTerms()">Close Terms & Conditions</p>
+                </div>
                         </label>
                 
                         <label>
-                            <input type="checkbox" id="privacy" name="privacy" required> I have read and agree to the <a href="#">Privacy Policy</a>.
+                            <input type="checkbox" id="privacy" name="privacy" required> I have read and agree to the <u><a href="#privacy-policy" onclick="showPrivacy()">Privacy Policy</a></u>.
                         </label>
+                
+                <!-- Privacy Policy Section -->
+                <div id="privacy-policy" style="display: none;">
+                    <p class="v-detail8"><strong>Policy</strong> </p>
+                    <p class="v-detail8">Your privacy is critically important to us. At Soulaze, we are committed to protecting and respecting your privacy while using our platform.</p>
+                
+                    <p class="v-detail8"><strong>1. Information We Collect</strong> </p>
+                    <p class="v-detail8">We collect personal information such as your name, email, and phone number when you volunteer as a counselor. This information is used to maintain communication and offer you relevant opportunities.</p>
+                
+                    <p class="v-detail8"><strong>2. How We Use Your Information</strong> </p>
+                    <p class="v-detail8">Your information will only be used for administrative purposes and to connect you with those seeking counseling services. We will not share your personal details with any third parties without your explicit consent.</p>
+                
+                    <p class="v-detail8" ><strong>3. Data Security</strong> </p>
+                    <p class="v-detail8">We take appropriate measures to ensure the security of your data, both online and offline. However, no data transmission over the internet is 100% secure, so we cannot guarantee absolute security.</p>
+                
+                    <p class="v-detail8" ><strong>4. Rights to Access and Control Your Data</strong> </p>
+                    <p class="v-detail8">You have the right to access, update, and delete any personal information we have on file. You may contact us at any time to request these changes.</p>
+                
+                    <p class="v-detail8"><strong>5. Changes to This Policy</strong> </p>
+                    <p class="v-detail8" >We reserve the right to update our Privacy Policy at any time. Any changes will be communicated via email and updated on our website.</p>
+                
+                    <p class="v-detail8" >By using Soulaze and volunteering as a counselor, you agree to this Privacy Policy.</p>
+                
+                    <p class="v-detail9" onclick="hidePrivacy()">Close Privacy Policy</p>
+                </div>
                 
                         <button type="submit">Submit</button>
                     </form>
@@ -238,9 +283,9 @@
  
                 </h2>
                 <p class="details" data-aos="fade-up">
-                    Thank you for your interest in becoming a counselor with Soulaze. Once your application has been submitted, our team will carefully review and vet all the information provided. Upon approval, you will receive an email with further details and next steps.
+                    Once your application has been submitted, our team will carefully review and vet all the information provided. Upon approval, you will receive an email with further details and next steps.
 
-                    <br></br>We appreciate your commitment to mental well-being and your desire to help others through counseling. Together, we can create a safe and supportive environment for everyone. Thank you for taking this important step with us.
+                    <br></br>We appreciate your commitment to mental well-being and your desire to help others through counseling.
                 </p>
             </section>
 
@@ -415,6 +460,24 @@
                 .catch(error => console.error('Error!', error.message));
             });
         </script>
-
+        <script>
+            function showTerms() {
+              document.getElementById('terms-conditions').style.display = 'block';
+              document.getElementById('privacy-policy').style.display = 'none'; /* Hide the privacy policy if it's open */
+            }
+            
+            function hideTerms() {
+              document.getElementById('terms-conditions').style.display = 'none';
+            }
+            
+            function showPrivacy() {
+              document.getElementById('privacy-policy').style.display = 'block';
+              document.getElementById('terms-conditions').style.display = 'none'; /* Hide the terms and conditions if it's open */
+            }
+            
+            function hidePrivacy() {
+              document.getElementById('privacy-policy').style.display = 'none';
+            }
+            </script>
     </body>
 </html>
