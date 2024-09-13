@@ -91,64 +91,107 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-10 mx-auto">
+                            <p class="v-detail" data-aos="fade-up">
+                                <strong>Welcome to our Book a Session page,</strong> where your well-being is our priority. <br>
+                                Take a deep breath and trust that by reaching out, you're taking a positive step toward healing and understanding. Once you submit your form, one of our dedicated counselors will reach out to you within <strong>24 hours.</strong> We’re here for you every step of the way.
+                            </p>
+                            <h2>Book a Session</h2>
+            
+                            <form id="sessionForm">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                                
+                                <label for="feeling">How are you feeling right now?</label>
+                                <select id="feeling" name="feeling" required>
+                                    <option value="">Select an Option</option>
+                                    <option value="I'm feeling sad right now">I'm feeling sad right now</option>
+                                    <option value="I feel lonely">I feel lonely</option>
+                                    <option value="I'm feeling anxious">I'm feeling anxious</option>
+                                    <option value="I'm struggling with self-esteem">I'm struggling with self-esteem</option>
+                                    <option value="I feel lost">I feel lost</option>
+                                </select>
+                                
+                                <label for="location">Location (State)</label>
+                                <select id="location" name="location" required>
+                                    <option value="">Select Your State</option>
+                                    <option value="Abia">Abia</option>
+                                    <option value="Adamawa">Adamawa</option>
+                                    <option value="Akwa Ibom">Akwa Ibom</option>
+                                    <option value="Anambra">Anambra</option>
+                                    <option value="Bauchi">Bauchi</option>
+                                    <option value="Bayelsa">Bayelsa</option>
+                                    <option value="Benue">Benue</option>
+                                    <option value="Borno">Borno</option>
+                                    <option value="Cross River">Cross River</option>
+                                    <option value="Delta">Delta</option>
+                                    <option value="Ebonyi">Ebonyi</option>
+                                    <option value="Edo">Edo</option>
+                                    <option value="Ekiti">Ekiti</option>
+                                    <option value="Enugu">Enugu</option>
+                                    <option value="FCT">FCT</option>
+                                    <option value="Gombe">Gombe</option>
+                                    <option value="Imo">Imo</option>
+                                    <option value="Jigawa">Jigawa</option>
+                                    <option value="Kaduna">Kaduna</option>
+                                    <option value="Kano">Kano</option>
+                                    <option value="Kogi">Kogi</option>
+                                    <option value="Kogi">Kogi</option>
+                                    <option value="Kwara">Kwara</option>
+                                    <option value="Lagos">Lagos</option>
+                                    <option value="Nasarawa">Nasarawa</option>
+                                    <option value="Niger">Niger</option>
+                                    <option value="Ogun">Ogun</option>
+                                    <option value="Ondo">Ondo</option>
+                                    <option value="Osun">Osun</option>
+                                    <option value="Oyo">Oyo</option>
+                                    <option value="Plateau">Plateau</option>
+                                    <option value="Rivers">Rivers</option>
+                                    <option value="Sokoto">Sokoto</option>
+                                    <option value="Taraba">Taraba</option>
+                                    <option value="Yobe">Yobe</option>
+                                    <option value="Zamfara">Zamfara</option>
+                                </select>
+
+                                <label for="counselor">Which counselor would you like to speak with?</label>
+                                <select id="counselor" name="counselor" required>
+                                    <option value="">Select an Option</option>
+                                    <option value="Mental Health Counselor">Mental Health Counselor</option>
+                                    <option value="Addiction Recovery Counselor">Addiction Recovery Counselor</option>
+                                    <option value="Self-Esteem Counselor">Self-Esteem Counselor</option>
+                                    <option value="Purpose Discovery Counselor">Purpose Discovery Counselor</option>
+                                </select>
+                                
+                                <label for="contact_method">Preferred Method of Contact</label>
+                                <select id="contact_method" name="contact_method" required>
+                                    <option value="">Select an Option</option>
+                                    <option value="Email">Email</option>
+                                    <option value="Google Meet">Google Meet</option>
+                                    <option value="Phone Call">Phone Call</option>
+                                </select>
+            
+                                
+                                
+                                <label for="message">Your Message to the Counselor</label>
+                                <textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea>
+                                
+                                <button type="submit">Book a Session</button>
+                            </form>  
                             
-
-                            <p class="v-detail" data-aos="fade-up"><strong>Welcome to our Book a Session page,</strong>  where your well-being is our priority. <br>Take a deep breath and trust that by reaching out, you're taking a positive step toward healing and understanding. Once you submit your form, one of our dedicated counselors will reach out to you within <strong>24 hours.</strong> We’re here for you every step of the way.
-                                  </p>
-                                  <h2>Book a Session</h2>
-
-                                  <form id="sessionForm">
-                                      <label for="name">Name</label>
-                                      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                              
-                                      <label for="email">Email</label>
-                                      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                              
-                                      <label for="phone">Phone Number</label>
-                                      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                              
-                                      <label for="feeling">How are you feeling right now?</label>
-                                      <select id="feeling" name="feeling" required>
-                                            <option value="">Select an Option</option>
-                                            <option value="I'm feeling sad right now">I'm feeling sad right now</option>
-                                          <option value="I feel lonely">I feel lonely</option>
-                                          <option value="I'm feeling anxious">I'm feeling anxious</option>
-                                          <option value="I'm struggling with self-esteem">I'm struggling with self-esteem</option>
-                                          <option value="I feel lost">I feel lost</option>
-                                      </select>
-                              
-                                      <label for="counselor">Which counselor would you like to speak with?</label>
-                                      <select id="counselor" name="counselor" required>
-                                            <option value="">Select an Option</option>
-                                            <option value="Mental Health Counselor">Mental Health Counselor</option>
-                                          <option value="Addiction Recovery Counselor">Addiction Recovery Counselor</option>
-                                          <option value="Self-Esteem Counselor">Self-Esteem Counselor</option>
-                                          <option value="Purpose Discovery Counselor">Purpose Discovery Counselor</option>
-
-                                      </select>
-                              
-                                      <label for="contact_method">Preferred Method of Contact</label>
-                                      <select id="contact_method" name="contact_method" required>
-                                        <option value="">Select an Option</option>
-                                            <option value="Email">Email</option>
-                                          <option value="Google Meet">Google Meet</option>
-                                          <option value="Phone Call">Phone Call</option>
-                                      </select>
-                              
-                                      <label for="message">Your Message to the Counselor</label>
-                                      <textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea>
-                              
-                                      <button type="submit">Book a Session</button>
-                                    </form>  
-                                    
-                                    <br></br> <p class="v-detail7">
-                                        <strong><u><a href="your-donation-link-here" class="donate-link1">Donate and Help Us Make Soulaze Free for All</a></u></strong>
-                                      </p>
-                                      
-
-                                        
-                                    </p>
+                            <br>
+                            <p class="v-detail7">
+                                <strong><u><a href="your-donation-link-here" class="donate-link1">Donate and Help Us Make Soulaze Free for All</a></u></strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </section>
+            
 
         </main>
 
@@ -192,16 +235,31 @@
 
         <!-- JAVASCRIPT FILES -->
         <script>
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ6E0SlQcoYCtU5ou_vj5Rpa7l6PNG7Ge1EZCLIxEgmWkTut2CjkeF-Vvk_s9rU_Sv9w/exec'; // Replace with the Apps Script Web App URL
-            const form = document.forms['sessionForm'];
-
-            form.addEventListener('submit', e => {
-            e.preventDefault();
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert('Session booked successfully!'))
-                .catch(error => alert('Error booking session!'));
+            // Show certification details input when the user selects "Yes" for certification
+            const certYes = document.getElementById('cert-yes');
+            const certDetails = document.getElementById('certification-details');
+          
+            certYes.addEventListener('change', function () {
+              certDetails.style.display = 'block';
             });
-        </script>
+          
+            const certNo = document.getElementById('cert-no');
+            certNo.addEventListener('change', function () {
+              certDetails.style.display = 'none';
+            });
+          
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ6E0SlQcoYCtU5ou_vj5Rpa7l6PNG7Ge1EZCLIxEgmWkTut2CjkeF-Vvk_s9rU_Sv9w/exec'; // Replace with your Google Apps Script URL
+          
+            const form = document.getElementById('sessionForm');
+            form.addEventListener('submit', e => {
+              e.preventDefault();
+          
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert('Form submitted successfully!'))
+                .catch(error => console.error('Error!', error.message));
+            });
+          </script>
+          
         
         
         

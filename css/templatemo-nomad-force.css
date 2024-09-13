@@ -23,7 +23,7 @@ https://templatemo.com/tm-567-nomad-force
   --body-font-family:           'Noto Sans JP', sans-serif;
 
   --h1-font-size:               72px;
-  --h2-font-size:               22px;
+  --h2-font-size:               20px;
   --h3-font-size:               36px;
   --h4-font-size:               32px;
   --h5-font-size:               24px;
@@ -1106,7 +1106,7 @@ button:hover {
 .close-link {
   cursor: pointer;
   text-decoration: underline;
-  color: #007BFF;
+  color:#717275 ;
   background: none;
   border: none;
   padding: 0;
