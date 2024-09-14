@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="videoWrapper">
-                    <img src="images/news/services.jpg" class="img-fluid news-detail-image" alt="">
+                    <img src="images/news/bookpage.jpg" class="img-fluid news-detail-image" alt="">
                 </div>
 
                 <div class="overlay"></div>
@@ -92,8 +92,8 @@
                     <div class="row">
                         <div class="col-lg-8 col-10 mx-auto">
                             <p class="v-detail" data-aos="fade-up">
-                                <strong>Welcome to our Book a Session page,</strong> where your well-being is our priority. <br>
-                                Take a deep breath and trust that by reaching out, you're taking a positive step toward healing and understanding. Once you submit your form, one of our dedicated counselors will reach out to you within <strong>24 hours.</strong> We’re here for you every step of the way.
+                                <strong>Welcome to our Book a Session page, where your well-being is our priority.</strong> <br>
+                                Take a deep breath and trust that by reaching out, you're taking a positive step toward healing and understanding. Rest assured, your information is safe with us—handled with the utmost care and confidentiality. <br>Once you submit your form, one of our dedicated counselors will reach out to you within  <strong>24 hours.</strong>We’re here for you every step of the way, ensuring your privacy as you embark on this journey of healing. 
                             </p>
                             <h2>Book a Session</h2>
             
@@ -117,46 +117,7 @@
                                     <option value="I feel lost">I feel lost</option>
                                 </select>
                                 
-                                <label for="location">Location (State)</label>
-                                <select id="location" name="location" required>
-                                    <option value="">Select Your State</option>
-                                    <option value="Abia">Abia</option>
-                                    <option value="Adamawa">Adamawa</option>
-                                    <option value="Akwa Ibom">Akwa Ibom</option>
-                                    <option value="Anambra">Anambra</option>
-                                    <option value="Bauchi">Bauchi</option>
-                                    <option value="Bayelsa">Bayelsa</option>
-                                    <option value="Benue">Benue</option>
-                                    <option value="Borno">Borno</option>
-                                    <option value="Cross River">Cross River</option>
-                                    <option value="Delta">Delta</option>
-                                    <option value="Ebonyi">Ebonyi</option>
-                                    <option value="Edo">Edo</option>
-                                    <option value="Ekiti">Ekiti</option>
-                                    <option value="Enugu">Enugu</option>
-                                    <option value="FCT">FCT</option>
-                                    <option value="Gombe">Gombe</option>
-                                    <option value="Imo">Imo</option>
-                                    <option value="Jigawa">Jigawa</option>
-                                    <option value="Kaduna">Kaduna</option>
-                                    <option value="Kano">Kano</option>
-                                    <option value="Kogi">Kogi</option>
-                                    <option value="Kogi">Kogi</option>
-                                    <option value="Kwara">Kwara</option>
-                                    <option value="Lagos">Lagos</option>
-                                    <option value="Nasarawa">Nasarawa</option>
-                                    <option value="Niger">Niger</option>
-                                    <option value="Ogun">Ogun</option>
-                                    <option value="Ondo">Ondo</option>
-                                    <option value="Osun">Osun</option>
-                                    <option value="Oyo">Oyo</option>
-                                    <option value="Plateau">Plateau</option>
-                                    <option value="Rivers">Rivers</option>
-                                    <option value="Sokoto">Sokoto</option>
-                                    <option value="Taraba">Taraba</option>
-                                    <option value="Yobe">Yobe</option>
-                                    <option value="Zamfara">Zamfara</option>
-                                </select>
+                                
 
                                 <label for="counselor">Which counselor would you like to speak with?</label>
                                 <select id="counselor" name="counselor" required>
@@ -183,9 +144,9 @@
                                 <button type="submit">Book a Session</button>
                             </form>  
                             
-                            <br>
+                            <br></br>
                             <p class="v-detail7">
-                                <strong><u><a href="your-donation-link-here" class="donate-link1">Donate and Help Us Make Soulaze Free for All</a></u></strong>
+                                <strong><u><a href="https://paystack.com/pay/9ztr398boc" class="donate-link1">Donate and Help Us Make Soulaze Free for All</a></u></strong>
                             </p>
                         </div>
                     </div>
@@ -235,30 +196,16 @@
 
         <!-- JAVASCRIPT FILES -->
         <script>
-            // Show certification details input when the user selects "Yes" for certification
-            const certYes = document.getElementById('cert-yes');
-            const certDetails = document.getElementById('certification-details');
-          
-            certYes.addEventListener('change', function () {
-              certDetails.style.display = 'block';
-            });
-          
-            const certNo = document.getElementById('cert-no');
-            certNo.addEventListener('change', function () {
-              certDetails.style.display = 'none';
-            });
-          
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ6E0SlQcoYCtU5ou_vj5Rpa7l6PNG7Ge1EZCLIxEgmWkTut2CjkeF-Vvk_s9rU_Sv9w/exec'; // Replace with your Google Apps Script URL
-          
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ6E0SlQcoYCtU5ou_vj5Rpa7l6PNG7Ge1EZCLIxEgmWkTut2CjkeF-Vvk_s9rU_Sv9w/exec';
             const form = document.getElementById('sessionForm');
+        
             form.addEventListener('submit', e => {
-              e.preventDefault();
-          
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert('Form submitted successfully!'))
-                .catch(error => console.error('Error!', error.message));
+                e.preventDefault();
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => alert('Session booked successfully!'))
+                    .catch(error => alert('Error! Please try again.'));
             });
-          </script>
+        </script>
           
         
         
@@ -279,5 +226,33 @@
         <script src="js/custom.js"></script>
         </script>
 
+
+        
+            
+
+        <script>
+            // Function to show the pop-up after 5 seconds
+            setTimeout(function() {
+            document.getElementById('thankPopup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
+            }, 5000); // 5,000 milliseconds = 5 seconds
+
+            // Function to close the pop-up
+            function closePopup() {
+            document.getElementById('thankPopup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+            }
+        </script>
+
     </body>
+    
+
+    <!-- Pop-up HTML -->
+                <div class="popup-overlay" id="popupOverlay"></div>
+                <div class="popup" id="thankPopup">
+                    <p><strong>Hello there,</strong></p>
+                    <p>We hope you feel a sense of relief knowing that support is on the way.</p>
+                    <a class="close-link" onclick="closePopup()">Close</a>
+                </div>
+    
 </html>

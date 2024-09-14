@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="videoWrapper">
-                    <img src="images/news/services.jpg" class="img-fluid news-detail-image" alt="">
+                    <img src="images/news/Donations.jpg" class="img-fluid news-detail-image" alt="">
                 </div>
 
                 <div class="overlay"></div>
@@ -101,9 +101,9 @@
                                     <p class="v-detail" data-aos="fade-up" class="support-section">
                                     <strong>Option 1: One-Time Support</strong><br>Want to make a one-time contribution? <br>Your contribution will help us cover operational costs, ensuring that our platform remains accessible to anyone in need of emotional support. 
                                     
-                                    <br><em><a class="a-underline" href="#">Click here</a></em> to make your one-time donation and help us keep Soulaze free for everyone.
+                                    <br><em><a class="a-underline" href="https://paystack.com/pay/9ztr398boc">Click here</a></em> to make your one-time donation and help us keep Soulaze free for everyone.
                                     <br></br><button class="donate-btn5">
-                                        <a href="#" class="donate-link">One-time donation</a>
+                                        <a href="https://paystack.com/pay/9ztr398boc" class="donate-link">One-time donation</a>
                                       </button>
                                       
                                   </p>
@@ -111,9 +111,9 @@
                                   <p class="v-detail" data-aos="fade-up">
                                     <br><strong>Option 2: Monthly Support</strong> <br>For those who want to make an ongoing impact, consider becoming a Monthly Supporter. By pledging, you’ll ensure that Soulaze continues to offer its life-changing services to more people over time. 
 
-                                    <br><em><a class="a-underline" href="#">Click here</a></em>  to set up your monthly donation and be part of our ongoing mission to keep Soulaze accessible to all.
+                                    <br><em><a class="a-underline" href="https://bit.ly/4e0yAE8">Click here</a></em>  to set up your monthly donation and be part of our ongoing mission to keep Soulaze accessible to all.
                                     <br></br><button class="donate-btn6">
-                                        <a href="#" class="donate-link">Monthly donation</a>
+                                        <a href="https://paystack.com/pay/9ztr398boc" class="donate-link">Monthly donation</a>
                                       </button>
                                   </p>
 
@@ -263,5 +263,30 @@
         <script src="js/scrollspy.min.js"></script>
         <script src="js/custom.js"></script>
 
+        <script>
+            // Function to show the pop-up after 30 seconds
+            setTimeout(function() {
+              document.getElementById('donationPopup').style.display = 'block';
+              document.getElementById('popupOverlay').style.display = 'block';
+            }, 30000); // 30000 milliseconds = 30 seconds
+        
+            // Function to close the pop-up
+            function closePopup() {
+              document.getElementById('donationPopup').style.display = 'none';
+              document.getElementById('popupOverlay').style.display = 'none';
+            }
+          </script>
+
     </body>
+    <!-- Pop-up HTML -->
+                <div class="popup-overlay" id="popupOverlay"></div>
+                <div class="popup" id="donationPopup">
+                    <p><strong>Support Soulaze</strong></p>
+                    <p>Help us keep Soulaze free and accessible by donating today.</p>
+                    <!-- Button that links to the donation page -->
+                    <a href="https://paystack.com/pay/9ztr398boc"><button>For Donatiuons</button></a>
+                    <br>
+                    <a class="close-link" onclick="closePopup()">Close</a>
+                </div>
+    
 </html>

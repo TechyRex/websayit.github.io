@@ -1092,6 +1092,7 @@ button:hover {
   width: 400px;
   text-align: center; /* Centering text inside the pop-up */
   max-width: 90%; /* Ensure it fits on smaller screens */
+  border-radius: 15px;
 }
 .popup-overlay {
   display: none;
@@ -1119,7 +1120,7 @@ button:hover {
   background-color: #aad90d; /* Green */
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 22px;
   cursor: pointer;
   display: inline-block; /* Prevent full width */
 }
@@ -1150,7 +1151,7 @@ button:hover {
   background-color: #356901; /* Green */
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 22px;
   cursor: pointer;
   display: inline-block; /* Prevent full width */
 }
