@@ -28,7 +28,7 @@ https://templatemo.com/tm-567-nomad-force
   --h3-font-size:               36px;
   --h4-font-size:               32px;
   --h5-font-size:               24px;
-  --h6-font-size:               20px;
+  --h6-font-size:               22px;
   --p-font-size:                17px;
   --copyright-text-font-size:   14px;
   --custom-link-font-size:      12px;
@@ -275,6 +275,7 @@ strong {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-bottom: 15px; /* Adds space between the button and text */
+  border-radius: 22px;
 }
 
 .send-a-message:hover {
