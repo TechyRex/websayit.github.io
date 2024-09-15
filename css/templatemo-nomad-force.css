@@ -19,6 +19,7 @@ https://templatemo.com/tm-567-nomad-force
   --title-color:                  #565758;
   --p-color:                      #717275;
   
+  
 
   --body-font-family:           'Noto Sans JP', sans-serif;
 
@@ -27,8 +28,8 @@ https://templatemo.com/tm-567-nomad-force
   --h3-font-size:               36px;
   --h4-font-size:               32px;
   --h5-font-size:               24px;
-  --h6-font-size:               22px;
-  --p-font-size:                20px;
+  --h6-font-size:               20px;
+  --p-font-size:                17px;
   --copyright-text-font-size:   14px;
   --custom-link-font-size:      12px;
 
@@ -1148,7 +1149,7 @@ button:hover {
 
 /* Button styling */
 .donate-btn6 {
-  background-color: #356901; /* Green */
+  background-color: #add90d; /* Green */
   border: none;
   padding: 10px 20px;
   border-radius: 22px;
@@ -1219,4 +1220,14 @@ button:hover {
 
 a:hover {
   color: #45a049; /* Darker green on hover */
+}
+
+
+
+
+
+.text1 {
+  color: #000000
+  var(--h6-font-size)
+  
 }
