@@ -79,7 +79,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="donations.html">Denotions</a>
+                                <a class="nav-link" href="donations.html">Donations</a>
                             </li>
 
                             
@@ -93,8 +93,7 @@
                         <div class="col-lg-8 col-10 mx-auto">
                             <p class="v-detail" data-aos="fade-up">
                                 <strong>Welcome to our Book a Session page, where your well-being is our priority.</strong> <br>
-                                Take a deep breath and trust that by reaching out, you're taking a positive step toward healing and understanding. Rest assured, your information is safe with us—handled with the utmost care and confidentiality. <br>Once you submit your form, one of our dedicated counselors will reach out to you within  <strong>24 hours.</strong>We’re here for you every step of the way, ensuring your privacy as you embark on this journey of healing. 
-                            </p>
+                                Take a deep breath and trust that by reaching out, you're taking a positive step toward healing and understanding. Rest assured, your information is safe with us—handled with the utmost care and confidentiality. <br>Once you submit your form, one of our dedicated counselors will reach out to you within  <strong>24 hours.</strong>We’re here for you every step of the way, ensuring your privacy as you embark on this journey of healing.
 
                             <br><h5>Book a Session</h5>
             
@@ -141,6 +140,44 @@
                                 
                                 <label for="message">Your Message to the Counselor</label>
                                 <textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea>
+
+                                <label>
+                                    <input type="checkbox" id="privacy" name="privacy" required> I have read the <u><a href="#privacy-policy" onclick="showPrivacy()">Privacy Policy</a></u>.
+                                </label>
+                            </p>
+                            <!-- Privacy Policy Section -->
+                <div id="privacy-policy" style="display: none;">
+                    <p class="v-detail8"><strong>Policy</strong> </p>
+                    <p class="v-detail8">Your privacy is critically important to us. At Soulaze, we are committed to protecting and respecting your privacy while using our platform.</p>
+
+                    <p class="v-detail8"><strong>1. Information We Collect</strong> </p>
+                    <p class="v-detail8">When you book a session on Soulaze, we collect the following personal information:</p>
+                    <ul class="v-detail8">
+                        <li>Name (Optional)</li>
+                        <li>Email Address</li>
+                        <li>Phone Number</li>
+                        <li>Details of your feelings and the message to the counselor</li>
+                    </ul>
+
+                    <p class="v-detail8"><strong>2. How We Use Your Information</strong> </p>
+                    <p class="v-detail8">The information collected is used solely to connect you with the appropriate counselor and to ensure you receive the support you need. We do not share your information with any third parties unless required by law.</p>
+
+                    <p class="v-detail8"><strong>3. Data Security</strong> </p>
+                    <p class="v-detail8">Your information is stored securely and protected with appropriate technical measures to prevent unauthorized access, misuse, or disclosure. However, no data transmission over the internet is 100% secure, so we cannot guarantee absolute security.</p>
+
+                    <p class="v-detail8"><strong>4. Confidentiality</strong> </p>
+                    <p class="v-detail8">All sessions are confidential. The details you share with Soulaze and your counselor are kept private unless you explicitly agree otherwise, or if there is a legal obligation to disclose information.</p>
+
+                    <p class="v-detail8"><strong>5. Rights to Access and Control Your Data</strong> </p>
+                    <p class="v-detail8">You have the right to access, update, and delete any personal information we have on file. You may contact us at any time to request these changes.</p>
+
+                    <p class="v-detail8"><strong>6. Changes to This Policy</strong> </p>
+                    <p class="v-detail8">We reserve the right to update our Privacy Policy at any time. Any changes will be communicated via email and updated on our website.</p>
+
+                    <p class="v-detail8">By booking a session on Soulaze, you agree to this Privacy Policy.</p>
+
+                    <p class="v-detail9" onclick="hidePrivacy()">Close Privacy Policy</p>
+                </div>
                                 
                                 <button type="submit">Book a Session</button>
                             </form>  
@@ -244,6 +281,26 @@
             document.getElementById('popupOverlay').style.display = 'none';
             }
         </script>
+        <!-- Add the function to hide the Privacy Policy section -->
+        <script>
+            function showTerms() {
+              document.getElementById('terms-conditions').style.display = 'block';
+              document.getElementById('privacy-policy').style.display = 'none'; /* Hide the privacy policy if it's open */
+            }
+            
+            function hideTerms() {
+              document.getElementById('terms-conditions').style.display = 'none';
+            }
+            
+            function showPrivacy() {
+              document.getElementById('privacy-policy').style.display = 'block';
+              document.getElementById('terms-conditions').style.display = 'none'; /* Hide the terms and conditions if it's open */
+            }
+            
+            function hidePrivacy() {
+              document.getElementById('privacy-policy').style.display = 'none';
+            }
+            </script>
 
     </body>
     
