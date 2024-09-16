@@ -28,7 +28,7 @@ https://templatemo.com/tm-567-nomad-force
   --h3-font-size:               36px;
   --h4-font-size:               32px;
   --h5-font-size:               24px;
-  --h6-font-size:               22px;
+  --h6-font-size:               26px;
   --p-font-size:                17px;
   --copyright-text-font-size:   14px;
   --custom-link-font-size:      12px;
@@ -1231,4 +1231,8 @@ a:hover {
   color: #000000
   var(--h6-font-size)
   
+}
+
+.privacy-text {
+  text-align: center;
 }
