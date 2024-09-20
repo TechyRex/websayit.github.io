@@ -37,7 +37,7 @@
             <section class="hero" id="hero">
                 <div class="heroText">
                     <h1 class="news-detail-title text-white mt-lg-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="300">
-                        Become a Counselor
+                        Become a Coach
                     </h1>
 
                     
@@ -53,7 +53,7 @@
             <nav class="navbar navbar-expand-lg bg-light shadow-lg">
                 <div class="container">
                     <a class="navbar-brand" href="index.html">
-                        <strong>Soulaze</strong>
+                        <img src="images/logo/Soulacepng1.png" alt="Soulaze Logo" style="height: 40px;">
                     </a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,15 +92,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-10 mx-auto">
-                            <h5 class="volunteer-detail1" data-aos="fade-up">Become a Counselor. </h5>
+                            <h5 class="volunteer-detail1" data-aos="fade-up">Become a Coach. </h5>
 
                             <p class="v-detail" data-aos="fade-up">
                                 
                                 
-                                Volunteer to Become a Counselor
+                                Volunteer to Become a Coach
                                 At Soulaze, we believe in the power of shared experiences and the importance of mental well-being. Our platform is designed to empower individuals to express their thoughts, feelings, and experiences in a safe, supportive environment, where their voices are not only heard but understood.
                                 
-                                <br></br>As a counselor on Soulaze, you will play a pivotal role in fostering this environment.
+                                <br></br>As a coach on Soulaze, you will play a pivotal role in fostering this environment.
                                 <br> We are looking for passionate, empathetic individuals who are dedicated to making na positive impact on others' lives by providing guidance, support, and a listening ear. </p>
                             
                                 
@@ -114,116 +114,108 @@
                             
             <section>
                 <div class="form-container">
-                    <h5 class="volunteer-detail">Volunteer to Become a Counselor</h5>
+                    <h5 class="volunteer-detail">Volunteer to Become a Coach</h5>
                 
-                    <br><form id="volunteer-form">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
-                        
-                        
+                    <br><form id="coachVolunteerForm">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    
                         <label for="gender">Gender:</label>
                         <select id="gender" name="gender" required>
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Prefer Not to Say">Prefer Not to Say</option>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" name="country" required>
+                    
+                        <label for="state">State:</label>
+                        <input type="text" id="state" name="state" required>
+                    
+                        <label for="religion">Religion:</label>
+                        <input type="text" id="religion" name="religion">
+                    
+                        <label for="hoursPerWeek">How many hours per week can you volunteer?</label>
+                        <input type="number" id="hoursPerWeek" name="hoursPerWeek" min="1" max="40" required>
+                    
+                        <label for="daysAvailable">Days available for volunteering (Select multiple):</label>
+                        <select id="daysAvailable" name="daysAvailable" multiple required>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    
+                        <label for="socialMedia">Link to Social Media Profile:</label>
+                        <input type="url" id="socialMedia" name="socialMedia" placeholder="https://">
+                    
+                        <label for="professionalCertificate">Do you have a professional coaching certificate?</label>
+                        <select id="professionalCertificate" name="professionalCertificate" onchange="toggleCertificateField()" required>
+                            <option value="">Select an option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    
+                        <div id="certificateTypeField" style="display: none;">
+                            <label for="certificateType">If yes, please specify the type of professional certificate:</label>
+                            <input type="text" id="certificateType" name="certificateType">
+                        </div>
+
+                        <label for="expertise">Area of Expertise:</label>
+                        <select id="expertise" name="expertise" required>
+                            <option value="">Select an area</option>
+                            <option value="Mental Health">Mental Health</option>
+                            <option value="Life Coaching">Life Coaching</option>
+                            <option value="Academic Counseling:">Academic Counseling</option>
+                            <option value="Self-Esteem">Self-Esteem</option>
+                            <option value="Body Image Counseling">Body Image Counseling</option>
+                            <option value="Confidence">Confidence</option>
+                            <option value="Purpose Discovery">Purpose Discovery</option>
+                            <option value="Career Counseling">Career Counseling</option>
+                            <option value="Spiritual Counseling">Spiritual Counseling</option>
+                            <option value="Stress Management Counseling">Stress Management Counseling</option>
+                            <option value="Health and Wellness Counseling">Health and Wellness Counseling</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    
+                        <label for="confidentiality">Can you maintain confidentiality?</label>
+                        <select id="confidentiality" name="confidentiality" required>
+                            <option value="">Select an option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    
+                        <label for="ageGroup">Age Group you can work with:</label>
+                        <select id="ageGroup" name="ageGroup" required>
+                            <option value="">Select an age group</option>
+                            <option value="Children (5-12)">Children (5-12)</option>
+                            <option value="Teens (13-17)">Teens (13-17)</option>
+                            <option value="Adults (18+)">Adults (18+)</option>
                         </select>
 
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
-                
-                        <label for="qualification">Qualification</label>
-                        <input type="text" id="qualification" name="qualification" required>
-                
-                          <!-- Years of Experience in Counseling -->
-                        <label for="experience">Years of Experience in Counseling:</label>
-                        <select id="experience" name="experience" required>
-                        <option value="">Select Experience</option>
-                        <option value="Less than 2 years">Less than 2 years</option>
-                        <option value="3 years">3 years</option>
-                        <option value="4 years">4 years</option>
-                        <option value="5 years">5 years</option>
-                        <option value="Above 5 years">Above 5 years</option>
-                        </select>
-                
-                        <label for="specialization">Specialization</label>
-                        <textarea id="specialization" name="specialization" rows="4" required></textarea>
-                
-                        <label for="age-group">Age Group</label>
-                        <select id="age-group" name="age-group" required>
-                            <option value="">Select Age Group</option>
-                            <option value="18-25">18-25</option>
-                            <option value="26-30">26-30</option>
-                            <option value="31-35">31-35</option>
-                            <option value="36-40">36-40</option>
-                            <option value="41-45">41-45</option>
-                            <option value="46-50">46-50</option>
-                        </select>
-                
-                        <label>Do you have a professional certification?</label>
-                        <input type="radio" id="cert-yes" name="certification" value="Yes" required> Yes
-                        <input type="radio" id="cert-no" name="certification" value="No" required> No
-                
-                        <div id="certification-details" style="display: none;">
-                            <label for="cert-details">If yes, please state your certification</label>
-                            <input type="text" id="cert-details" name="cert-details">
-                        </div>
-                
-                        <label>Are you currently employed?</label>
-                        <input type="radio" id="employed-yes" name="employment" value="Yes" required> Yes
-                        <input type="radio" id="employed-no" name="employment" value="No" required> No
-                
-                        <label for="hours">How many hours are you willing to volunteer per week?</label>
-                        <input type="text" id="hours" name="hours" required>
-                
-                        <label for="motivation">Why do you want to volunteer?</label>
-                        <textarea id="motivation" name="motivation" rows="4" required></textarea>
-                
-                        <label>If we compensate you for your effort, are you comfortable receiving a reasonable amount?</label>
+                        <label for="compensation">Do you expect compensation?</label>
                         <select id="compensation" name="compensation" required>
-                            <option value="">Select an Option</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                             <option value="Maybe">Maybe</option>
                         </select>
-                
-                        <label>Confidentiality is key. Are you ready to keep client information confidential and accept penalties if confidentiality is breached?</label>
-                        <select id="confidentiality" name="confidentiality" required>
-                            <option value="">Select an Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                
-                        <label for="how-hear">How did you hear about the Soulaze Counselor Volunteer program?</label>
-                        <select id="how-hear" name="how-hear" required>
-                            <option value="">Select an Option</option>
-                            <option value="Facebook">Facebook</option>
-                            <option value="Instagram">Instagram</option>
-                            <option value="LinkedIn">LinkedIn</option>
-                            <option value="WhatsApp">WhatsApp</option>
-                            <option value="TikTok">TikTok</option>
-                            <option value="Friends">Friends</option>
-                            <option value="Referrals">Referrals</option>
-                        </select>
-                
-                        <label for="photo">Upload a picture of you (not more than 5MB)</label>
-                        <input type="file" id="photo" name="photo" accept="image/*" required>
-
-                        <form method="POST" enctype="multipart/form-data" action="https://script.google.com/macros/s/AKfycbzMf4I3ctnIKppQpWdiP1nQ4jHthnrPMHtQKq92vw8/dev">
                             
-                          
-                
-                        <label for="facebook">Facebook Handle Link</label>
-                        <input type="text" id="facebook" name="facebook" required>
-                
-                        <label for="instagram">Instagram Handle Link</label>
-                        <input type="text" id="instagram" name="instagram" required>
-                
-                        <label for="x-handle">X (formerly Twitter) Handle Link</label>
-                        <input type="text" id="x-handle" name="x-handle" required>
+                        <label for="howDidYouHear">How did you hear about us?</label>
+                        <input type="text" id="howDidYouHear" name="howDidYouHear" required>
+                    
+                        <label for="whyVolunteer">Why do you want to volunteer?</label>
+                        <textarea id="whyVolunteer" name="whyVolunteer" rows="4" required></textarea>
                 
                         <label>
                             <input type="checkbox" id="terms" name="terms" required> I have read and agree to the <u><a href="#terms-conditions" onclick="showTerms()">Terms and Conditions</a></u>.
@@ -242,7 +234,7 @@
                     <p class="v-detail8" >All personal information and discussions with users must remain confidential. Any breach of confidentiality may result in removal from the platform.</p>
                 
                     <p class="v-detail8" ><strong>4. Non-Compensation</strong></p>
-                    <p class="v-detail8">Soulaze volunteers are not compensated for their time or services. Volunteering is a completely voluntary, non-paid service.</p>
+                    <p class="v-detail8">At Soulaze, we deeply appreciate our volunteers, who generously dedicate their time and skills to support our mission. While volunteering is a completely voluntary service and not compensated monetarily, we value your contributions and provide necessary incentives that recognize your efforts. Your involvement plays a vital role in making a difference in the lives of others, and we are grateful to have you as part of our community!</p>
                 
                     <p class="v-detail8"><strong>5. Termination of Service</strong></p>
                     <p class="v-detail8">Soulaze reserves the right to terminate your volunteer status at any time if you fail to adhere to the guidelines, standards, or any other terms and conditions.</p>
@@ -445,48 +437,79 @@
         <script src="js/scrollspy.min.js"></script>
         <script src="js/custom.js"></script>
         <script>
-            // Show certification details input when the user selects "Yes" for certification
-            const certYes = document.getElementById('cert-yes');
-            const certDetails = document.getElementById('certification-details');
+            // Show/hide the certificate type field based on the professional certificate selection
+            function toggleCertificateField() {
+                const professionalCertificate = document.getElementById('professionalCertificate').value;
+                const certificateTypeField = document.getElementById('certificateTypeField');
+                
+                if (professionalCertificate === 'Yes') {
+                    certificateTypeField.style.display = 'block';
+                } else {
+                    certificateTypeField.style.display = 'none';
+                }
+            }
         
-            certYes.addEventListener('change', function () {
-                certDetails.style.display = 'block';
-            });
+            // Form submission handler
+            document.getElementById('coachVolunteerForm').addEventListener('submit', function(e) {
+                e.preventDefault();  // Prevent the default form submission
         
-            const certNo = document.getElementById('cert-no');
-            certNo.addEventListener('change', function () {
-                certDetails.style.display = 'none';
-            });
+                const form = document.getElementById('coachVolunteerForm');
+                const formData = new FormData(form);
+                
+                const data = {
+                    fullName: formData.get('fullName'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    gender: formData.get('gender'),
+                    country: formData.get('country'),
+                    state: formData.get('state'),
+                    religion: formData.get('religion'),
+                    hoursPerWeek: formData.get('hoursPerWeek'),
+                    daysAvailable: Array.from(formData.getAll('daysAvailable')).join(', '),
+                    socialMedia: formData.get('socialMedia'),
+                    professionalCertificate: formData.get('professionalCertificate'),
+                    certificateType: formData.get('certificateType') || 'N/A',
+                    expertise: formData.get('expertise'),
+                    confidentiality: formData.get('confidentiality'),
+                    ageGroup: formData.get('ageGroup'),
+                    compensation: formData.get('compensation'),
+                    howDidYouHear: formData.get('howDidYouHear'),
+                    whyVolunteer: formData.get('whyVolunteer')
+                };
         
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyy_Jrw-WN6UAShvsrYMb4JKbSeYCWiiok0NK4Eh7RJrHq1R-xGwaLaesqBYH35LPRg/exec'; // Replace with your Google Apps Script URL
-        
-            const form = document.getElementById('volunteer-form');
-            form.addEventListener('submit', e => {
-                e.preventDefault();
-        
-                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert('Form submitted successfully!'))
-                .catch(error => console.error('Error!', error.message));
+                fetch('https://script.google.com/macros/s/AKfycbw9rRB7RaK8XnZDUFwA7-XY7ToghgGMazOYexacuP4K1eh3ve_svCiNUWVNcRMdgk9Q/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(() => {
+                    alert('Form submitted successfully!');
+                    form.reset();  // Reset form after successful submission
+                })
+                .catch(error => console.error('Error:', error));
             });
         </script>
-        <script>
-            function showTerms() {
-              document.getElementById('terms-conditions').style.display = 'block';
-              document.getElementById('privacy-policy').style.display = 'none'; /* Hide the privacy policy if it's open */
-            }
-            
-            function hideTerms() {
-              document.getElementById('terms-conditions').style.display = 'none';
-            }
-            
-            function showPrivacy() {
-              document.getElementById('privacy-policy').style.display = 'block';
-              document.getElementById('terms-conditions').style.display = 'none'; /* Hide the terms and conditions if it's open */
-            }
-            
-            function hidePrivacy() {
-              document.getElementById('privacy-policy').style.display = 'none';
-            }
+                <script>
+                    function showTerms() {
+                    document.getElementById('terms-conditions').style.display = 'block';
+                    document.getElementById('privacy-policy').style.display = 'none'; /* Hide the privacy policy if it's open */
+                    }
+                    
+                    function hideTerms() {
+                    document.getElementById('terms-conditions').style.display = 'none';
+                    }
+                    
+                    function showPrivacy() {
+                    document.getElementById('privacy-policy').style.display = 'block';
+                    document.getElementById('terms-conditions').style.display = 'none'; /* Hide the terms and conditions if it's open */
+                    }
+                    
+                    function hidePrivacy() {
+                    document.getElementById('privacy-policy').style.display = 'none';
+                    }
             </script>
     </body>
 </html>
