@@ -90,27 +90,27 @@
 
             <div class="container7">
                 <h5>Join Call</h5>
-                    <input type="text" id="access-code" placeholder="Enter Access Code">
-                    <select id="call-type">
-                        <option value="audio">Audio Only</option>
-                        <option value="video">Video Only</option>
-                        <option value="both">Audio & Video</option>
-                    </select>
-                    <button id="join-call-btn">Join Call</button>
-
-    <script>
-        document.getElementById('join-call-btn').addEventListener('click', function () {
-            const accessCode = document.getElementById('access-code').value;
-            const storedCode = localStorage.getItem('accessCode');
-            const isCodeActive = localStorage.getItem('codeActive');
-
-            if (accessCode === storedCode && isCodeActive === 'true') {
-                localStorage.setItem('callType', document.getElementById('call-type').value);
-                window.location.href = 'call-interface.html'; // Redirect to call interface
-            } else {
-                alert('Invalid code or code has been revoked!');
-            }
-        });
-    </script>
-</body>
-</html>
+                <input type="text" id="access-code" placeholder="Enter Access Code">
+                <select id="call-type">
+                    <option value="audio">Audio Only</option>
+                    <option value="video">Video Only</option>
+                    <option value="both">Audio & Video</option>
+                </select>
+                <button id="join-call-btn">Join Call</button>
+            
+                <script>
+                    document.getElementById('join-call-btn').addEventListener('click', function () {
+                        const accessCode = document.getElementById('access-code').value;
+                        const storedCode = localStorage.getItem('accessCode');
+                        const isCodeActive = localStorage.getItem('codeActive');
+            
+                        if (accessCode === storedCode && isCodeActive === 'true') {
+                            localStorage.setItem('callType', document.getElementById('call-type').value);
+                            window.location.href = 'call-interface.html'; // Redirect to call interface
+                        } else {
+                            alert('Invalid code or code has been revoked!');
+                        }
+                    });
+                </script>
+            </body>
+            </html>

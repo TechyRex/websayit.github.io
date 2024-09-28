@@ -78,7 +78,6 @@
         }
     </style>
 
-    <!-- Adding Font Awesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -139,7 +138,6 @@
     }
 
     function startAudioVisualization() {
-        // Simulated audio visualization effect
         setInterval(() => {
             const audioBars = document.querySelectorAll('.audio-bar');
             audioBars.forEach(bar => {
@@ -150,7 +148,6 @@
 
     function startVideoStream() {
         // Here you would normally start the video stream from user's webcam
-        // Simulating by displaying a placeholder
         videoElement.src = "https://via.placeholder.com/800x400"; // Placeholder video
         videoElement.play();
     }
@@ -160,6 +157,12 @@
         muteBtn.querySelector('span').innerText = isMuted ? 'Unmute' : 'Mute';
         muteBtn.querySelector('i').classList.toggle('fa-microphone-slash', isMuted);
         muteBtn.querySelector('i').classList.toggle('fa-microphone', !isMuted);
+        // Simulating muting audio
+        if (isMuted) {
+            // Code to mute the audio stream
+        } else {
+            // Code to unmute the audio stream
+        }
     });
 
     videoToggleBtn.addEventListener('click', () => {
@@ -180,7 +183,7 @@
     // Initialize the call setup
     setupCall();
 </script>
-
 </body>
 </html>
+
 

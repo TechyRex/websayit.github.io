@@ -90,28 +90,28 @@
             <section>
                 <div class="container76">
                     <h5>Generate Call Code</h5>
-        <button id="generate-code-btn">Generate Code</button>
-        <input type="text" id="generated-code" readonly placeholder="Generated Code Will Appear Here">
-        <a href="call-setup.html">Go to Call Setup</a>
-    </div>
-
-    <script>
-        document.getElementById('generate-code-btn').addEventListener('click', function () {
-            const code = generateAccessCode();
-            document.getElementById('generated-code').value = code;
-            localStorage.setItem('accessCode', code); // Store access code
-            localStorage.setItem('codeActive', 'true'); // Mark code as active
-        });
-
-        function generateAccessCode() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let code = '';
-            for (let i = 0; i < 6; i++) {
-                const randomIndex = Math.floor(Math.random() * chars.length);
-                code += chars[randomIndex];
-            }
-            return code;
-        }
-    </script>
-</body>
-</html>
+                    <button id="generate-code-btn">Generate Code</button>
+                    <input type="text" id="generated-code" readonly placeholder="Generated Code Will Appear Here">
+                    <a href="call-setup.html">Go to Call Setup</a>
+                </div>
+            
+                <script>
+                    document.getElementById('generate-code-btn').addEventListener('click', function () {
+                        const code = generateAccessCode();
+                        document.getElementById('generated-code').value = code;
+                        localStorage.setItem('accessCode', code); // Store access code
+                        localStorage.setItem('codeActive', 'true'); // Mark code as active
+                    });
+            
+                    function generateAccessCode() {
+                        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                        let code = '';
+                        for (let i = 0; i < 6; i++) {
+                            const randomIndex = Math.floor(Math.random() * chars.length);
+                            code += chars[randomIndex];
+                        }
+                        return code;
+                    }
+                </script>
+            </body>
+            </html>
