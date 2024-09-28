@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+        }
+
+        video, .audio-visualization {
+            width: 100%;
+            height: 400px;
+            background-color: #444;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .audio-visualization {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: transparent;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .end-call {
+            color: red;
+        }
+
+        .audio-bar {
+            width: 5px;
+            height: 30px;
+            background-color: #add90d;
+            margin: 2px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+    <!-- Adding Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Call Interface</h1>
+
+    <!-- Video element for video call -->
+    <video id="video" class="hide"></video>
+
+    <!-- Audio visualization for audio-only calls -->
+    <div id="audio-visualization" class="audio-visualization hide">
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+    </div>
+
+    <!-- Call controls with icons -->
+    <div class="controls">
+        <button id="mute-btn">
+            <i class="fas fa-microphone icon"></i>
+            <span>Mute</span>
+        </button>
+        <button id="video-toggle-btn">
+            <i class="fas fa-video icon"></i>
+            <span>Video Off</span>
+        </button>
+        <button id="end-call-btn" class="end-call">
+            <i class="fas fa-phone-slash icon"></i>
+            <span>End Call</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    let isMuted = false;
+    let isVideoOn = true;
+    const callType = localStorage.getItem('callType');
+    const videoElement = document.getElementById('video');
+    const audioVisualization = document.getElementById('audio-visualization');
+    const muteBtn = document.getElementById('mute-btn');
+    const videoToggleBtn = document.getElementById('video-toggle-btn');
+    const endCallBtn = document.getElementById('end-call-btn');
+
+    // Function to simulate setting up the call interface
+    function setupCall() {
+        if (callType === 'audio') {
+            videoElement.classList.add('hide');
+            audioVisualization.classList.remove('hide');
+            startAudioVisualization();
+        } else if (callType === 'video' || callType === 'both') {
+            audioVisualization.classList.add('hide');
+            videoElement.classList.remove('hide');
+            startVideoStream();
+        }
+    }
+
+    function startAudioVisualization() {
+        // Simulated audio visualization effect
+        setInterval(() => {
+            const audioBars = document.querySelectorAll('.audio-bar');
+            audioBars.forEach(bar => {
+                bar.style.height = Math.random() * 100 + 'px';
+            });
+        }, 300);
+    }
+
+    function startVideoStream() {
+        // Here you would normally start the video stream from user's webcam
+        // Simulating by displaying a placeholder
+        videoElement.src = "https://via.placeholder.com/800x400"; // Placeholder video
+        videoElement.play();
+    }
+
+    muteBtn.addEventListener('click', () => {
+        isMuted = !isMuted;
+        muteBtn.querySelector('span').innerText = isMuted ? 'Unmute' : 'Mute';
+        muteBtn.querySelector('i').classList.toggle('fa-microphone-slash', isMuted);
+        muteBtn.querySelector('i').classList.toggle('fa-microphone', !isMuted);
+    });
+
+    videoToggleBtn.addEventListener('click', () => {
+        isVideoOn = !isVideoOn;
+        videoToggleBtn.querySelector('span').innerText = isVideoOn ? 'Video Off' : 'Video On';
+        videoToggleBtn.querySelector('i').classList.toggle('fa-video-slash', !isVideoOn);
+        videoToggleBtn.querySelector('i').classList.toggle('fa-video', isVideoOn);
+        videoElement.classList.toggle('hide', !isVideoOn);
+    });
+
+    endCallBtn.addEventListener('click', () => {
+        alert('Call ended!');
+        localStorage.removeItem('accessCode'); // Remove access code
+        localStorage.removeItem('codeActive'); // Revoke code
+        window.location.href = 'call-setup.html'; // Redirect to call setup
+    });
+
+    // Initialize the call setup
+    setupCall();
+</script>
+
+</body>
+</html>
+
