@@ -1,116 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Soulaze Call</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        <meta name="description" content="Soulaze is a platform designed to empower individuals to share their thoughts, feelings, and experiences in a safe and supportive environment">
-        <meta name="author" content="">
-
-        <title>My Soulaze</title>
-
-        <!-- CSS FILES -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
         
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        .container86 {
+            max-width: 400px;
+            margin: 100px auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-        <link href="css/aos.css" rel="stylesheet">
+        h1 {
+            color: #356901;
+        }
 
-        <link href="css/templatemo-nomad-force.css" rel="stylesheet">
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
 
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
 
-    </head>
-    
-    <body>
-    
-        <main>
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #add90d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container86">
+        <h1>Join Soulaze Call</h1>
+        <label for="accessCode">Enter Access Code:</label>
+        <input type="text" id="accessCode" placeholder="Access Code">
+        <label for="callType">Select Call Type:</label>
+        <select id="callType">
+            <option value="audio">Audio Only</option>
+            <option value="video">Audio and Video</option>
+        </select>
+        <button id="joinCallButton">Join Call</button>
+    </div>
 
-            <section class="hero" id="hero">
-                <div class="heroText">
-                    <h1 class="news-detail-title text-white mt-lg-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="300">
-                        Become a Coach
-                    </h1>
+    <script>
+        document.getElementById("joinCallButton").addEventListener("click", function() {
+            const accessCode = document.getElementById("accessCode").value;
+            const callType = document.getElementById("callType").value;
+            if (accessCode) {
+                // Redirect to the video call page with the selected call type
+                window.location.href = `video_call.html?type=${callType}`; // Pass call type to the video page
+            } else {
+                alert("Please enter a valid access code.");
+            }
+        });
+    </script>
+</body>
+</html>
 
-                    
-                </div>
-
-                <div class="videoWrapper">
-                    <img src="images/news/services.jpg" class="img-fluid news-detail-image" alt="">
-                </div>
-
-                <div class="overlay"></div>
-            </section>
-
-            <nav class="navbar navbar-expand-lg bg-light shadow-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/logo/Soulacepng1.png" alt="Soulaze Logo" style="height: 40px;">
-                    </a>
-
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html">About Us</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="services.html">Our Services</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="book-a-session.html">Book a Session</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="donations.html">Donations</a>
-                            </li>
-
-                           
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="container7">
-                <h5>Join Call</h5>
-                <input type="text" id="access-code" placeholder="Enter Access Code">
-                <select id="call-type">
-                    <option value="audio">Audio Only</option>
-                    <option value="video">Video Only</option>
-                    <option value="both">Audio & Video</option>
-                </select>
-                <button id="join-call-btn">Join Call</button>
-            
-                <script>
-                    document.getElementById('join-call-btn').addEventListener('click', function () {
-                        const accessCode = document.getElementById('access-code').value;
-                        const storedCode = localStorage.getItem('accessCode');
-                        const isCodeActive = localStorage.getItem('codeActive');
-            
-                        if (accessCode === storedCode && isCodeActive === 'true') {
-                            localStorage.setItem('callType', document.getElementById('call-type').value);
-                            window.location.href = 'call-interface.html'; // Redirect to call interface
-                        } else {
-                            alert('Invalid code or code has been revoked!');
-                        }
-                    });
-                </script>
-            </body>
-            </html>

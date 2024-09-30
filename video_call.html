@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Audio Call</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #callContainer {
+            display: none;
+        }
+        #remoteAudio {
+            margin-top: 20px;
+        }
+        #muteButton {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Start Audio Call</h2>
+    <button id="startCallButton">Start Call</button>
+    <button id="endCallButton" style="display: none;">End Call</button>
+    <button id="muteButton" style="display: none;">Mute</button>
+
+    <div id="callContainer">
+        <h3>Call Active</h3>
+        <audio id="remoteAudio" autoplay controls></audio>
+    </div>
+
+    <script>
+        let localStream;
+        let peerConnection;
+        let isMuted = false;
+        const configuration = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+        const signalingServer = new WebSocket('wss://your-signaling-server-url'); // Replace with your signaling server URL
+
+        document.getElementById('startCallButton').addEventListener('click', async () => {
+            try {
+                // Get user media for audio
+                localStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+                // Log local stream tracks
+                console.log('Local stream tracks:', localStream.getTracks());
+
+                // List available devices
+                navigator.mediaDevices.enumerateDevices().then(devices => {
+                    devices.forEach(device => {
+                        console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
+                    });
+                });
+
+                // Create peer connection
+                peerConnection = new RTCPeerConnection(configuration);
+
+                // Add local stream to peer connection
+                localStream.getTracks().forEach(track => {
+                    peerConnection.addTrack(track, localStream);
+                });
+
+                // Handle incoming audio track from remote peer
+                peerConnection.ontrack = (event) => {
+                    const remoteAudio = document.getElementById('remoteAudio');
+                    remoteAudio.srcObject = event.streams[0]; // Set remote audio source
+
+                    // Log remote stream tracks
+                    console.log('Remote stream tracks:', event.streams[0].getTracks());
+                };
+
+                // Handle ICE candidates
+                peerConnection.onicecandidate = (event) => {
+                    if (event.candidate) {
+                        console.log('Sending ICE candidate:', event.candidate);
+                        signalingServer.send(JSON.stringify({ candidate: event.candidate }));
+                    }
+                };
+
+                // Create an offer and send it to the remote peer
+                const offer = await peerConnection.createOffer();
+                await peerConnection.setLocalDescription(offer);
+                signalingServer.send(JSON.stringify({ offer: peerConnection.localDescription }));
+
+                // Show call container and change button visibility
+                document.getElementById('callContainer').style.display = 'block';
+                document.getElementById('startCallButton').style.display = 'none';
+                document.getElementById('endCallButton').style.display = 'block';
+                document.getElementById('muteButton').style.display = 'block';
+            } catch (error) {
+                console.error('Error starting call:', error);
+            }
+        });
+
+        // End Call
+        document.getElementById('endCallButton').addEventListener('click', () => {
+            peerConnection.close();
+            localStream.getTracks().forEach(track => track.stop());
+            document.getElementById('callContainer').style.display = 'none';
+            document.getElementById('startCallButton').style.display = 'block';
+            document.getElementById('endCallButton').style.display = 'none';
+            document.getElementById('muteButton').style.display = 'none';
+        });
+
+        // Mute/Unmute button functionality
+        document.getElementById('muteButton').addEventListener('click', () => {
+            localStream.getAudioTracks()[0].enabled = !isMuted;
+            isMuted = !isMuted;
+            document.getElementById('muteButton').textContent = isMuted ? 'Unmute' : 'Mute';
+        });
+
+        // Receive signaling messages
+        signalingServer.onmessage = (message) => {
+            console.log('Message from signaling server:', message.data);
+            try {
+                const data = JSON.parse(message.data);
+                console.log('Received data:', data);
+                if (data.offer) {
+                    peerConnection.setRemoteDescription(new RTCSessionDescription(data.offer));
+                    peerConnection.createAnswer().then((answer) => {
+                        return peerConnection.setLocalDescription(answer);
+                    }).then(() => {
+                        signalingServer.send(JSON.stringify({ answer: peerConnection.localDescription }));
+                    });
+                } else if (data.answer) {
+                    peerConnection.setRemoteDescription(new RTCSessionDescription(data.answer));
+                } else if (data.candidate) {
+                    peerConnection.addIceCandidate(new RTCIceCandidate(data.candidate));
+                }
+            } catch (error) {
+                console.error('Failed to parse message:', error);
+            }
+        };
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulaze Call Interface</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+
+        .container89 {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #356901;
+        }
+
+        h2 {
+            color: #add90d;
+        }
+
+        .admin-controls {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #generateButton {
+            background-color: #add90d;
+            color: white;
+        }
+
+        #revokeButton {
+            background-color: #356901;
+            color: white;
+        }
+
+        .call-link a {
+            display: block;
+            margin: 10px 0;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container89">
+        <h1>Soulaze Counseling Call Interface</h1>
+        <div class="call-section">
+            <h2>Call Access</h2>
+            <div class="admin-controls">
+                <label for="accessCode">Access Code:</label>
+                <input type="text" id="accessCode" readonly>
+                <button id="generateButton">Generate Access Code</button>
+                <button id="revokeButton" disabled>Revoke Access Code</button>
+            </div>
+            <div class="call-link">
+                <h3>Call Link:</h3>
+                <a id="callLink" href="#" target="_blank"></a>
+            </div>
+            <button id="startCallButton" disabled onclick="location.href='join.html'">Start Call</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("generateButton").addEventListener("click", function() {
+            const accessCode = Math.random().toString(36).substring(2, 10); // Generate random access code
+            document.getElementById("accessCode").value = accessCode;
+            const callLink = `https://yourcallingplatform.com/call/${accessCode}`; // Replace with your calling platform URL
+            document.getElementById("callLink").href = callLink;
+            document.getElementById("callLink").innerText = callLink;
+            
+            document.getElementById("startCallButton").disabled = false;
+            document.getElementById("revokeButton").disabled = false;
+        });
+
+        document.getElementById("revokeButton").addEventListener("click", function() {
+            document.getElementById("accessCode").value = '';
+            document.getElementById("callLink").href = '#';
+            document.getElementById("callLink").innerText = '';
+            
+            document.getElementById("startCallButton").disabled = true;
+            document.getElementById("revokeButton").disabled = true;
+        });
+    </script>
+</body>
+</html>
+
