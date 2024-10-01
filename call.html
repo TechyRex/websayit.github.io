@@ -36,8 +36,8 @@
 
             <section class="hero" id="hero">
                 <div class="heroText">
-                    <h1 class="news-detail-title text-white mt-lg-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="300">
-                        Admin Page
+                    <h1 class="news-detail-title text-white mt-lg-5 mb-lg-4" >
+                        Join  Call
                     </h1>
 
                     
@@ -88,62 +88,45 @@
                 </div>
             </nav>
 
-         
-            <h5>Admin Code Management</h5>
-    <button onclick="generateCode()">Generate Code</button>
-    <input type="text" id="codeInput" placeholder="Enter code to revoke">
-    <button onclick="revokeCode()">Revoke Code</button>
-    
-    <h5>Generated Codes</h5>
-    <ul id="codeList"></ul>
+            <section class="news-detail section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-10 mx-auto">
+                            <h5 class="volunteer-detail1" >Join Call</h5>
 
-    <script>
-        const codeList = document.getElementById('codeList');
+                            <p class="v-detail" >
 
-        async function generateCode() {
-            const response = await fetch('http://localhost:3000/generate-code', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-            });
-            const data = await response.json();
-            if (response.ok) {
-                alert(`Generated Code: ${data.code}`);
-                updateCodeList(data.code);
-            } else {
-                alert('Error generating code!');
-            }
-        }
+                                Welcome to <strong>Soulaze</strong>. We are thrilled to have you here! <strong>check your email for the verification code we’ve sent. Enter the code</strong>  below to join the call and start your journey toward meaningful conversations and support. 
+                            
+                                <br></br>We’re excited to connect with you and ensure you feel safe, heard, and supported.
+                            
+                                <em>Let’s get started with <strong>Soulaze</strong>.</em>
+                            
+                            </p>
+                            <div class="container95">
+                                <h5>Enter Access Code</h5>
+                                <input type="text" id="codeInput" placeholder="Enter your code">
+                                <button onclick="joinMeeting()">Join Meeting</button>
+                                <p id="message"></p>
+                            </div>
+                        </section>
 
-        async function revokeCode() {
-            const codeToRevoke = document.getElementById('codeInput').value;
-            const response = await fetch('http://localhost:3000/revoke-code', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ code: codeToRevoke }),
-            });
-            const data = await response.json();
-            alert(data.message);
-            if (data.message.includes('Revoked')) {
-                updateCodeList(codeToRevoke, true);
-            }
-            document.getElementById('codeInput').value = '';
-        }
-
-        function updateCodeList(newCode, isRevoked = false) {
-            if (isRevoked) {
-                const items = codeList.getElementsByTagName('li');
-                for (let i = 0; i < items.length; i++) {
-                    if (items[i].innerText === newCode) {
-                        codeList.removeChild(items[i]);
-                        break;
-                    }
-                }
-            } else {
-                const li = document.createElement('li');
-                li.textContent = newCode;
-                codeList.appendChild(li);
-            }
-        }
-    </script>
-</body>
-</html>
+            
+            
+                        <script>
+                            async function joinMeeting() {
+                                const code = document.getElementById('codeInput').value;
+                                const response = await fetch(`http://localhost:3000/validate-code/${code}`);
+                                const data = await response.json();
+                                const messageElement = document.getElementById('message');
+                                
+                                if (data.valid) {
+                                    // Redirect to the actual meeting page if code is valid
+                                    window.location.href = 'join-meeting.html';
+                                } else {
+                                    messageElement.textContent = 'Invalid code. Please try again.';
+                                }
+                            }
+                        </script>
+                    </body>
+                    </html>

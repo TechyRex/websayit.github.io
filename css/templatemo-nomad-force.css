@@ -1272,8 +1272,8 @@ input:not([type="checkbox"]),
             margin-right: 8px; /* Space between checkbox and text */
         }
 
-/* Additional styling for counselor and client sections */
-.container76 {
+/*Call*/
+.container95 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1282,14 +1282,22 @@ input:not([type="checkbox"]),
   text-align: center;
 }
 
-h5 {
-  color: #356901; /* Dark green for the heading */
-  margin-bottom: 15px;
+
+
+#codeInput {
+  width: 80%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 15px 0; /* Adds space around the input */
+  text-align: center; /* Centers the text inside the input */
+  border: 2px solid #add90d; /* Light green border */
+  border-radius: 5px;
+  background-color: #f8f8f8; /* Light background for input */
 }
 
-#generate-code-btn {
+button {
   background-color: #add90d; /* Light green for button background */
-  color: #356901; /* Dark green for button text */
+  color: #fff; /* Dark green for button text */
   cursor: pointer;
   padding: 12px;
   margin: 15px 0; /* Adds space around the button */
@@ -1301,35 +1309,18 @@ h5 {
   transition: background-color 0.3s ease;
 }
 
-#generate-code-btn:hover {
+button:hover {
   background-color: #356901; /* Dark green on hover */
   color: white; /* White text on hover */
 }
 
-#generated-code {
-  width: 80%;
-  max-width: 300px;
-  padding: 10px;
-  margin: 10px 0; /* Adds space below the input */
-  text-align: center; /* Centers the text inside the input */
-  border: 2px solid #add90d; /* Light green border */
-  border-radius: 5px;
-  background-color: #f8f8f8; /* Light background for better readability */
+#message {
+  color: #356901; /* Dark green for message text */
+  margin-top: 20px; /* Adds space above the message */
+  font-size: 14px; /* Font size for message */
 }
-
-a {
-  color: #356901; /* Dark green for the link */
-  text-decoration: none; /* Removes underline from the link */
-  margin-top: 15px; /* Adds space above the link */
-}
-
-a:hover {
-  text-decoration: underline; /* Adds underline on hover */
-}
-
-/*call html*/
-
-.container7 {
+/*admin*/
+.admin-code-management {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1338,35 +1329,51 @@ a:hover {
   text-align: center;
 }
 
-h5 {
-  color: #356901; /* Dark green for the heading */
-  margin-bottom: 15px;
-}
 
-#access-code,
-#call-type,
-#join-call-btn {
+
+button {
+  background-color: #add90d; /* Light green for button background */
+  color: #ffff; /* Dark green for button text */
+  cursor: pointer;
+  padding: 12px;
+  margin: 15px 0; /* Adds space around the buttons */
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
   width: 80%;
   max-width: 300px;
-  padding: 10px;
-  margin: 10px 0; /* Adds space between elements */
-  text-align: center; /* Centers the text inside inputs and button */
-  border: 2px solid #add90d; /* Light green border */
-  border-radius: 5px;
-}
-
-#access-code {
-  margin-bottom: 15px; /* Adds space below the access code input */
-}
-
-#join-call-btn {
-  background-color: #add90d; /* Light green for button background */
-  color: #356901; /* Dark green for button text */
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-#join-call-btn:hover {
+button:hover {
   background-color: #356901; /* Dark green on hover */
   color: white; /* White text on hover */
+}
+
+#codeInput {
+  width: 80%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 15px 0; /* Adds space around the input */
+  text-align: center; /* Centers the text inside the input */
+  border: 2px solid #add90d; /* Light green border */
+  border-radius: 5px;
+  background-color: #f8f8f8; /* Light background for input */
+}
+
+
+
+#codeList {
+  list-style-type: none; /* Removes bullet points from list */
+  padding: 0; /* Removes padding from the list */
+  margin-top: 15px; /* Adds space above the list */
+  color: #356901; /* Dark green for the code list text */
+}
+
+#codeList li {
+  margin: 5px 0; /* Adds space between list items */
+  background-color: #f8f8f8; /* Light background for list items */
+  padding: 10px;
+  border: 1px solid #add90d; /* Light green border for list items */
+  border-radius: 5px; /* Rounded corners for list items */
 }
