@@ -1,0 +1,158 @@
+<!-- Admin Page (Ranty) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranty - Admin Panel</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e8f5e9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    .message-list {
+      margin-top: 20px;
+    }
+
+    .message {
+      background: #f1f8e9;
+      padding: 15px;
+      border: 1px solid #c5e1a5;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .message h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #4CAF50;
+    }
+
+    .message p {
+      margin: 0 0 10px;
+    }
+
+    .timestamp {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .reply-form {
+      margin-top: 15px;
+    }
+
+    .reply-form input[type="text"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .reply-form textarea {
+      width: calc(100% - 20px);
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      resize: vertical;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #388E3C;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Panel</h1>
+    <p>Manage messages and provide replies as a counselor.</p>
+
+    <div class="message-list" id="messageList">
+      <!-- Messages directed to counselors will appear here dynamically -->
+    </div>
+  </div>
+
+  <script>
+    const messages = JSON.parse(localStorage.getItem('rants')) || [];
+    const messageList = document.getElementById('messageList');
+
+    function displayMessages() {
+      messageList.innerHTML = '';
+
+      messages
+        .filter(message => message.response === 'counselor')
+        .forEach((message) => {
+          const messageDiv = document.createElement('div');
+          messageDiv.classList.add('message');
+
+          messageDiv.innerHTML = `
+            <h3>${message.name}</h3>
+            <p>${message.content}</p>
+            <div class="timestamp">${new Date(message.timestamp).toLocaleString()}</div>
+
+            <form class="reply-form" onsubmit="replyToMessage(event, '${message.id}')">
+              <input type="text" placeholder="Your Name (e.g., Counselor David)" required id="name-${message.id}">
+              <textarea placeholder="Your Reply" required id="reply-${message.id}"></textarea>
+              <button type="submit" class="btn">Send Reply</button>
+            </form>
+          `;
+
+          messageList.appendChild(messageDiv);
+        });
+    }
+
+    function replyToMessage(event, messageId) {
+      event.preventDefault();
+
+      const nameInput = document.getElementById(`name-${messageId}`).value.trim();
+      const replyInput = document.getElementById(`reply-${messageId}`).value.trim();
+
+      if (nameInput && replyInput) {
+        const message = messages.find(msg => msg.id === messageId);
+        message.replies.push({ by: nameInput, message: replyInput });
+        localStorage.setItem('rants', JSON.stringify(messages));
+        displayMessages();
+        alert('Reply sent successfully!');
+      } else {
+        alert('Please fill out both name and reply!');
+      }
+    }
+
+    displayMessages();
+  </script>
+</body>
+</html>

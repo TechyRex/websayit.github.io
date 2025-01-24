@@ -1,0 +1,278 @@
+<!-- Main Page (Ranty) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranty Chats - Express Yourself</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e8f5e9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    form {
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 120px;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .checkbox-label {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #388E3C;
+    }
+
+    .rant-list {
+      margin-top: 30px;
+    }
+
+    .rant {
+      background: #f1f8e9;
+      padding: 15px;
+      border: 1px solid #c5e1a5;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .rant h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #4CAF50;
+    }
+
+    .rant p {
+      margin: 0 0 10px;
+    }
+
+    .reply {
+      margin-top: 10px;
+      padding: 10px;
+      background: #e8f5e9;
+      border-left: 4px solid #4CAF50;
+      border-radius: 6px;
+    }
+
+    .timestamp {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .response-options {
+      margin-bottom: 15px;
+    }
+
+
+    form#rantForm {
+    width: 100%;
+    max-width: 600px; /* Adjust the max width as needed */
+    margin: 0 auto; /* Center the form */
+}
+
+form#rantForm .form-group {
+    margin-bottom: 20px; /* Space between form fields */
+}
+
+form#rantForm input[type="text"],
+form#rantForm textarea {
+    width: 100%;
+    padding: 10px; /* Add padding for inner space */
+    margin: 0 0 10px 0; /* Prevent touching the margin */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+form#rantForm textarea {
+    height: 150px; /* Adjust textarea height */
+}
+
+
+
+
+h1 {
+    font-size: 36px; /* Adjust the size of the title */
+    margin-bottom: 10px; /* Space between the title and tagline */
+}
+
+.tagline {
+    font-size: 18px; /* Adjust the size of the tagline */
+    color: #777; /* Optional: change text color for the tagline */
+    font-style: italic; /* Optional: make the tagline italic */
+    text-align: center; 
+    padding: 20px;
+}
+
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h1>Ranty Chats</h1>
+      <p class="tagline">Express yourself freely and connect with others who care.</p>
+  
+      <!-- Rant Form -->
+      <form id="rantForm">
+        <div class="form-group">
+          <label for="name">Name (Optional)</label>
+          <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="rant">Your Rant</label>
+          <textarea id="rant" placeholder="What’s on your mind?"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="anonymous">
+          <label class="checkbox-label" for="anonymous">Post Anonymously</label>
+        </div>
+        <div class="form-group response-options">
+          <label>Who can respond to your message?</label>
+          <input type="radio" name="response" id="counselorOnly" value="counselor" checked>
+          <label class="checkbox-label" for="counselorOnly">Only Counselors</label>
+          <input type="radio" name="response" id="everyone" value="everyone">
+          <label class="checkbox-label" for="everyone">Everyone</label>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+  
+      <!-- Display Rants -->
+      <div class="rant-list" id="rantList">
+        <!-- Rants will appear here dynamically -->
+      </div>
+    </div>
+  
+    <script>
+      const rantForm = document.getElementById('rantForm');
+      const rantList = document.getElementById('rantList');
+  
+      let rants = JSON.parse(localStorage.getItem('rants')) || [];
+  
+      function displayRants() {
+        rantList.innerHTML = '';
+  
+        rants.forEach((rant) => {
+          const rantDiv = document.createElement('div');
+          rantDiv.classList.add('rant');
+  
+          rantDiv.innerHTML = `
+            <h3>${rant.name}</h3>
+            <p>${rant.content}</p>
+            <div class="timestamp">${new Date(rant.timestamp).toLocaleString()}</div>
+            ${rant.response === 'everyone' ? `<button onclick="replyToRant('${rant.id}')" class="btn btn-reply">Reply</button>` : ''}
+            <div class="replies">
+              ${rant.replies.map(reply => `
+                <div class="reply">
+                  <strong>${reply.by}:</strong> ${reply.message}
+                </div>
+              `).join('')}
+            </div>
+          `;
+  
+          rantList.appendChild(rantDiv);
+        });
+  
+        localStorage.setItem('rants', JSON.stringify(rants));
+      }
+  
+      function replyToRant(rantId) {
+        const name = prompt('Enter your name (optional):');
+        const reply = prompt('Enter your reply:');
+  
+        if (reply) {
+          const responderName = name || 'Anonymous';
+          const rant = rants.find(rant => rant.id === rantId);
+          rant.replies.push({ by: responderName, message: reply });
+          localStorage.setItem('rants', JSON.stringify(rants));
+          displayRants();
+        }
+      }
+  
+      rantForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+  
+        const nameInput = document.getElementById('name').value.trim();
+        const rantInput = document.getElementById('rant').value.trim();
+        const anonymous = document.getElementById('anonymous').checked;
+        const response = document.querySelector('input[name="response"]:checked').value;
+  
+        if (rantInput === '') {
+          alert('Please enter your rant before submitting.');
+          return;
+        }
+  
+        const rant = {
+          id: Date.now().toString(), // Unique ID for each rant
+          name: anonymous ? 'Anonymous' : nameInput || 'Anonymous',
+          content: rantInput,
+          response,
+          replies: [],
+          timestamp: new Date().toISOString()
+        };
+  
+        rants.push(rant);
+        localStorage.setItem('rants', JSON.stringify(rants));
+        displayRants();
+  
+        rantForm.reset();
+      });
+  
+      displayRants();
+    </script>
+  </body>
+  </html>
