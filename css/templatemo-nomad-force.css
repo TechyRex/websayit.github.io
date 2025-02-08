@@ -1377,3 +1377,339 @@ button:hover {
   border: 1px solid #add90d; /* Light green border for list items */
   border-radius: 5px; /* Rounded corners for list items */
 }
+
+
+
+/*RantsChat*/
+
+/*body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e8f5e9;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #4CAF50;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.checkbox-label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn {
+  display: inline-block;
+  background: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #388E3C;
+}
+
+.rant-list {
+  margin-top: 30px;
+}
+
+.rant {
+  background: #f1f8e9;
+  padding: 15px;
+  border: 1px solid #c5e1a5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.rant h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #4CAF50;
+}
+
+.rant p {
+  margin: 0 0 10px;
+}
+
+.reply {
+  margin-top: 10px;
+  padding: 10px;
+  background: #e8f5e9;
+  border-left: 4px solid #4CAF50;
+  border-radius: 6px;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.response-options {
+  margin-bottom: 15px;
+}
+
+
+form#rantForm {
+width: 100%;
+max-width: 600px; /* Adjust the max width as needed */
+/*margin: 0 auto; /* Center the form */
+}
+
+/*form#rantForm .form-group {
+margin-bottom: 20px; /* Space between form fields */
+}
+
+/*form#rantForm input[type="text"],
+form#rantForm textarea {
+width: 100%;
+padding: 10px; /* Add padding for inner space */
+margin: 0 0 10px 0; /* Prevent touching the margin */
+box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+form#rantForm textarea {
+height: 150px; /* Adjust textarea height */
+}
+
+
+
+
+/*h1 {
+font-size: 36px; /* Adjust the size of the title */
+margin-bottom: 10px; /* Space between the title and tagline */
+}
+
+/*.tagline {
+font-size: 18px; /* Adjust the size of the tagline */
+color: #777; /* Optional: change text color for the tagline */
+font-style: italic; /* Optional: make the tagline italic */
+text-align: center; 
+padding: 20px;
+}*/
+
+/*New Rants CSS*/
+
+/* General Styles */
+#graphcomment {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment Box */
+.gc-comment-box {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.gc-comment-box textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f5f5f5;
+  resize: vertical;
+}
+
+.gc-comment-box textarea:focus {
+  border-color: #4b6a3a;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(75, 106, 58, 0.1);
+}
+
+/* Buttons */
+.gc-btn {
+  background-color: #4b6a3a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gc-btn:hover {
+  background-color: #3a5430;
+}
+
+.gc-btn-secondary {
+  background-color: #c4d545;
+  color: #333;
+}
+
+.gc-btn-secondary:hover {
+  background-color: #b0c03d;
+}
+
+/* Comments */
+.gc-comment {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.gc-comment:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gc-comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.gc-comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.gc-comment-author {
+  font-weight: bold;
+  color: #4b6a3a;
+}
+
+.gc-comment-date {
+  font-size: 12px;
+  color: #777;
+  margin-left: auto;
+}
+
+.gc-comment-body {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Reply Button */
+.gc-reply-btn {
+  color: #eb3f00;
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.gc-reply-btn:hover {
+  color: #c43500;
+}
+
+/* Like Button */
+.gc-like-btn {
+  color: #fab027;
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.gc-like-btn:hover {
+  color: #e89c1f;
+}
+
+/* Pagination */
+.gc-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gc-pagination button {
+  background-color: #4b6a3a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gc-pagination button:hover {
+  background-color: #3a5430;
+}
+
+.gc-pagination button.active {
+  background-color: #c4d545;
+  color: #333;
+}
+
+
+
+
+.privacy-checkbox {
+  font-size: 0.8rem; /* Smaller font size for checkbox label */
+  color: #333;
+  z-index: 2; /* Ensure it's above the overlay */
+  margin-top: 10px;
+}
+
+.privacy-checkbox input[type="checkbox"] {
+  width: 0.8rem; /* Match checkbox size to text */
+  height: 0.8rem; /* Match checkbox size to text */
+  margin-right: 5px; /* Space between checkbox and text */
